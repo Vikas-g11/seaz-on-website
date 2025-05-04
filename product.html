@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Seazon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <img src="SEAZON.png" alt="Seazon Logo" class="logo">
+        <input type="text" placeholder="Search for products..." class="search-box">
+        <div class="cart">🛒 Cart</div>
+    </header>
+<!-- Order Form in Product Page -->
+<form id="order-form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required><br>
+  
+    <label for="email">Email:</label>
+    <input type="email" id="email" required><br>
+  
+    <label for="address">Address:</label>
+    <textarea id="address" required></textarea><br>
+  
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" required><br>
+  
+    <!-- Button Redirecting to Order Success Page -->
+    <button type="submit" id="place-order">Place Order</button>
+  </form>
+  
+  <script>
+    // Redirect to order-success page when the form is submitted
+    document.getElementById("order-form").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+  
+      // Redirect to order success page
+      window.location.href = "order-success.html";
+    });
+  </script>
+  
+    <!-- Hidden Order Page (will show on clicking Place Order) -->
+    <section class="hidden-order-page" id="order-page">
+        <h3>Order Information</h3>
+        <form id="order-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+            <label for="address">Address:</label>
+            <input type="text" id="address" required>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" required>
+            <button type="submit">Confirm Order</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Contact: <a href="mailto:geddappanavarvikas72@gmail.com">geddappanavarvikas72@gmail.com</a></p>
+        <p>&copy; 2025 Seazon. All rights reserved.</p>
+    </footer>
+
+    <script src="product.js"></script>
+    <div class="hidden-order-page" id="orderForm">
+        <form>
+          <label>Name:</label>
+          <input type="text" required>
+      
+          <label>Address:</label>
+          <input type="text" id="location" required>
+          <button type="button" onclick="autofillLocation()">📍 Auto-detect Location</button>
+      
+          <label>UPI ID / Card:</label>
+          <input type="text" placeholder="you@example.com or 1234-5678-****" required>
+      
+          <button type="submit">Confirm Payment</button>
+        </form>
+      </div>      
+      <script>
+        function autofillLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+              const lat = position.coords.latitude;
+              const lon = position.coords.longitude;
+      
+              fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
+                .then(res => res.json())
+                .then(data => {
+                  const address = data.display_name;
+                  document.getElementById('location').value = address;
+                });
+            });
+          } else {
+            alert('Geolocation not supported by your browser');
+          }
+        }
+      </script>      
+      <label>Address:</label>
+      <input type="text" id="location" required>
+      <button type="button" onclick="autofillLocation()">📍 Auto-detect Location</button>
+      <script>
+        <script>
+  function autofillLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
+          .then(res => res.json())
+          .then(data => {
+            const address = data.display_name;
+            document.getElementById('location').value = address;
+          });
+      });
+    } else {
+      alert('Geolocation not supported by your browser');
+    }
+  }
+</script>
+
+<footer class="footer">
+  <p>Contact: <a href="mailto:geddappanavarvikas72@gmail.com">geddappanavarvikas72@gmail.com</a></p>
+  <p>Phone: +91 123 456 7890</p>
+  <p>Follow us:</p>
+  <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+  <p>&copy; 2025 Seazon. All rights reserved.</p>
+</footer>
+.product-card img {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.1);
+}
+<!-- Example product card with names -->
+<div class="product-card">
+  <img src="https://via.placeholder.com/200x200.png?text=Product+1" alt="Product 1">
+  <h3>Mini Summer Fan</h3> <!-- Product Name -->
+  <p>₹499</p>
+  <p class="product-stock">In Stock</p> <!-- Stock Availability -->
+  <button onclick="window.location.href='product.html?id=1'">View Details</button>
+</div>
+
+<div class="product-card">
+  <img src="https://via.placeholder.com/200x200.png?text=Product+2" alt="Product 2">
+  <h3>Portable Cooler</h3> <!-- Product Name -->
+  <p>₹999</p>
+  <p class="product-stock">In Stock</p> <!-- Stock Availability -->
+  <button onclick="window.location.href='product.html?id=2'">View Details</button>
+</div>
+
+<div class="product-card">
+  <img src="https://via.placeholder.com/200x200.png?text=Product+3" alt="Product 3">
+  <h3>Wireless Earbuds</h3> <!-- Product Name -->
+  <p>₹799</p>
+  <p class="product-stock">In Stock</p> <!-- Stock Availability -->
+  <button onclick="window.location.href='product.html?id=3'">View Details</button>
+</div>
+
+<div class="product-card">
+  <img src="https://via.placeholder.com/200x200.png?text=Product+4" alt="Product 4">
+  <h3>Smartwatch</h3> <!-- Product Name -->
+  <p>₹1999</p>
+  <p class="product-stock">Out of Stock</p> <!-- Stock Availability -->
+  <button onclick="window.location.href='product.html?id=4'">View Details</button>
+</div>
+
+<div class="product-card">
+  <img src="https://via.placeholder.com/200x200.png?text=Product+5" alt="Product 5">
+  <h3>Electric Kettle</h3> <!-- Product Name -->
+  <p>₹1200</p>
+  <p class="product-stock">In Stock</p> <!-- Stock Availability -->
+  <button onclick="window.location.href='product.html?id=5'">View Details</button>
+</div>
+
+<!-- Repeat the above blocks for up to 500 products -->
+<!-- Product Grid -->
+<main class="product-grid">
+  <!-- Repeat the following product card block for 500 products -->
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200x200.png?text=Product+1" alt="Product 1">
+    <h3>Mini Summer Fan</h3> <!-- Product Name -->
+    <p>₹499</p>
+    <p class="product-stock">In Stock</p> <!-- Stock Availability -->
+    <button onclick="window.location.href='product.html?id=1'">View Details</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200x200.png?text=Product+2" alt="Product 2">
+    <h3>Portable Cooler</h3> <!-- Product Name -->
+    <p>₹999</p>
+    <p class="product-stock">In Stock</p> <!-- Stock Availability -->
+    <button onclick="window.location.href='product.html?id=2'">View Details</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200x200.png?text=Product+3" alt="Product 3">
+    <h3>Wireless Earbuds</h3> <!-- Product Name -->
+    <p>₹799</p>
+    <p class="product-stock">In Stock</p> <!-- Stock Availability -->
+    <button onclick="window.location.href='product.html?id=3'">View Details</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200x200.png?text=Product+4" alt="Product 4">
+    <h3>Smartwatch</h3> <!-- Product Name -->
+    <p>₹1999</p>
+    <p class="product-stock">Out of Stock</p> <!-- Stock Availability -->
+    <button onclick="window.location.href='product.html?id=4'">View Details</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200x200.png?text=Product+5" alt="Product 5">
+    <h3>Electric Kettle</h3> <!-- Product Name -->
+    <p>₹1200</p>
+    <p class="product-stock">In Stock</p> <!-- Stock Availability -->
+    <button onclick="window.location.href='product.html?id=5'">View Details</button>
+  </div>
+
+  <!-- Repeat similar product cards for more items (up to 500) -->
+</main>
+<main class="product-grid">
+    <main class="product-grid">
+  <!-- Paste your product cards below this line -->
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200x200.png?text=Product+1" alt="Product 1">
+    <h3>Mini Summer Fan</h3> <!-- Product Name -->
+    <p>₹499</p>
+    <p class="product-stock">In Stock</p> <!-- Stock Availability -->
+    <button onclick="window.location.href='product.html?id=1'">View Details</button>
+  </div>
+
+  <div class="product-card">
+    <img src="https://via.placeholder.com/200x200.png?text=Product+2" alt="Product 2">
+    <h3>Portable Cooler</h3> <!-- Product Name -->
+    <p>₹999</p>
+    <p class="product-stock">In Stock</p> <!-- Stock Availability -->
+    <button onclick="window.location.href='product.html?id=2'">View Details</button>
+  </div>
+
+  <!-- Repeat this block for more products -->
+
+</main>
+
+</body>
+</html>

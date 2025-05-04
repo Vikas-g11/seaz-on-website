@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Placed - Seazon</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Sparkle Effect */
+    .sparkle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      color: #ff9999; /* Pink color for sparkle */
+      animation: sparkle 2s infinite;
+    }
+
+    @keyframes sparkle {
+      0% { opacity: 0; }
+      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.5); }
+      100% { opacity: 0; }
+    }
+    
+    .confirmation-message {
+      text-align: center;
+      font-size: 24px;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sparkle Effect -->
+  <div class="sparkle">✨</div>
+
+  <!-- Order Success Message -->
+  <div class="confirmation-message">
+    <h2>Thank You for Your Order!</h2>
+    <p>Your order has been successfully placed.</p>
+    <p>You will receive a confirmation email shortly.</p>
+  </div>
+
+</body>
+</html>

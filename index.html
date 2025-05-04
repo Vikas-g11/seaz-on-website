@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seazon - A-Z Season Picks</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <img src="SEAZON.png" alt="Seazon Logo" class="logo">
+    <input type="text" placeholder="Search for products..." class="search-box">
+    <div class="cart">🛒 Cart</div>
+  </header>
+
+  <!-- Category Bar -->
+  <nav class="category-bar">
+    <a href="#">Summer</a>
+    <a href="#">Winter</a>
+    <a href="#">Clothing</a>
+    <a href="#">Electronics</a>
+    <a href="#">Home & Kitchen</a>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <h1>Welcome to Seazon</h1>
+    <p>Find the perfect picks for every season</p>
+  </section>
+
+  <!-- Product Grid -->
+  <main class="product-grid">
+    <!-- Dummy Product Example -->
+    <div class="product-card">
+      <img src="https://via.placeholder.com/200x200.png?text=Product+1" alt="Product 1">
+      <h3>Mini Summer Fan</h3>
+      <p>₹499</p>
+      <button onclick="window.location.href='product.html?id=1'">View Details</button>
+    </div>
+    <!-- Repeat similar dummy product cards up to 500 via JS later -->
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>Contact: <a href="mailto:geddappanavarvikas72@gmail.com">geddappanavarvikas72@gmail.com</a></p>
+    <p>&copy; 2025 Seazon. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <!-- Add this before </body> in index.html -->
+<script>
+    const productGrid = document.querySelector('.product-grid');
+  
+    for (let i = 2; i <= 500; i++) {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <img src="https://via.placeholder.com/200x200.png?text=Product+${i}" alt="Product ${i}">
+        <h3>Product ${i}</h3>
+        <p>₹${Math.floor(Math.random() * 900 + 100)}</p>
+        <button onclick="window.location.href='product.html?id=${i}'">View Details</button>
+      `;
+      productGrid.appendChild(card);
+    }
+  </script>  
+</body>
+</html>
